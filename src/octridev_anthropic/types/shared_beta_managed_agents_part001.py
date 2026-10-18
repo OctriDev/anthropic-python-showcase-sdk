@@ -524,7 +524,11 @@ class BetaManagedAgentsBudgetLimit(BaseModel):
     type: Literal["limit"]
     """Required enumerated value serialized in the `type` wire field."""
     max_list_cost: BetaMonetaryAmount
-    """Maximum list cost the session may accrue. List price is used regardless of any negotiated discount, so the cap fires at or before the actual charge."""
+    """
+    Maximum list cost the session may accrue. List price is used regardless of any negotiated discount, so the cap fires at or before the actual charge.
+
+    @example {"currency":"USD","amount":"2500"}
+    """
 
     @model_validator(mode="before")
     @classmethod

@@ -390,7 +390,11 @@ class BetaManagedAgentsDeployment(BaseModel):
     description: str | None
     """Description of what the deployment does."""
     agent: BetaManagedAgentsAgentReference
-    """Reference to the agent this deployment runs, resolved to a concrete version."""
+    """
+    Reference to the agent this deployment runs, resolved to a concrete version.
+
+    @example {"type":"agent","id":"agent_011CZkYqphY8vELVzwCUpqiQ","version":1}
+    """
     environment_id: str
     """ID of the `environment` where sessions run."""
     vault_ids: list[str]
@@ -467,7 +471,11 @@ class BetaManagedAgentsDeploymentRun(BaseModel):
     error: BetaManagedAgentsRunError | None
     """Populated on creation failure. Null on success. Exactly one of `session_id` or `error` is non-null."""
     agent: BetaManagedAgentsAgentReference
-    """Snapshot of the agent at fire time. Always fully resolved — deployments pin agent + version."""
+    """
+    Snapshot of the agent at fire time. Always fully resolved — deployments pin agent + version.
+
+    @example {"type":"agent","id":"agent_011CZkYqphY8vELVzwCUpqiQ","version":1}
+    """
     created_at: BetaTimestamp
     """Time this run record was persisted."""
 

@@ -38,7 +38,7 @@ class BetaRequestFallbackBlock(BaseModel):
     """Identifies one hop of a fallback transition."""
     type: Literal["fallback"]
     """Required `string` value serialized in the `type` wire field."""
-    trigger: Any | NotGiven = NOT_GIVEN
+    trigger: Any | None | NotGiven = NOT_GIVEN
     """The response block's `trigger`, echoed verbatim. Accepted and ignored by the server; any object or `null` is allowed."""
 
     @model_validator(mode="before")

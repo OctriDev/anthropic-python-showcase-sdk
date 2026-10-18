@@ -287,7 +287,12 @@ class BetaResponseFallbackHopInfo(BaseModel):
 class BetaContentBlockSource(BaseModel):
     """Typed representation of the `BetaContentBlockSource` API schema."""
 
-    content: str | list[BetaContentBlockSourceContentItem]
+    content: (
+        str
+        | Annotated[
+            list[BetaContentBlockSourceContentItem], WrapValidator(validate_union_candidate)
+        ]
+    )
     """Required API value serialized in the `content` wire field."""
     type: Literal["content"]
     """Required `string` value serialized in the `type` wire field."""
@@ -459,7 +464,7 @@ class BetaResponseWebSearchToolResultBlock(BaseModel):
 
     content: (
         Annotated[BetaResponseWebSearchToolResultError, WrapValidator(validate_union_candidate)]
-        | list[BetaResponseWebSearchResultBlock]
+        | Annotated[list[BetaResponseWebSearchResultBlock], WrapValidator(validate_union_candidate)]
     )
     """Required API value serialized in the `content` wire field."""
     tool_use_id: str

@@ -369,7 +369,7 @@ class RequestWebSearchToolResultError(BaseModel):
 class InputMessage(BaseModel):
     """Typed representation of the `InputMessage` API schema."""
 
-    content: str | list[InputContentBlock]
+    content: str | Annotated[list[InputContentBlock], WrapValidator(validate_union_candidate)]
     """Required API value serialized in the `content` wire field."""
     role: Literal["user", "assistant", "system"] | str
     """Required enumerated value serialized in the `role` wire field."""
@@ -384,7 +384,10 @@ class InputMessage(BaseModel):
 class ContentBlockSource(BaseModel):
     """Typed representation of the `ContentBlockSource` API schema."""
 
-    content: str | list[ContentBlockSourceContentItem]
+    content: (
+        str
+        | Annotated[list[ContentBlockSourceContentItem], WrapValidator(validate_union_candidate)]
+    )
     """Required API value serialized in the `content` wire field."""
     type: Literal["content"]
     """Required `string` value serialized in the `type` wire field."""

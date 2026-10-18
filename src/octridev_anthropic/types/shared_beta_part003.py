@@ -4,14 +4,20 @@
 from __future__ import annotations
 
 import datetime
-from typing import TYPE_CHECKING, Any, Literal
+from typing import TYPE_CHECKING, Annotated, Any, Literal
 
-from pydantic import BaseModel, ConfigDict, Field, field_validator, model_validator
+from pydantic import BaseModel, ConfigDict, Field, WrapValidator, field_validator, model_validator
 
 from octridev_anthropic.client import NOT_GIVEN, NotGiven
 from octridev_anthropic.types.shared_beta_part001 import BetaCapabilitySupport
 
-from ..validation import validate_length, validate_pattern, validate_range, validate_required
+from ..validation import (
+    validate_length,
+    validate_pattern,
+    validate_range,
+    validate_required,
+    validate_union_candidate,
+)
 
 if TYPE_CHECKING:
     from octridev_anthropic.types.shared_beta_part006 import BetaFallbackRefusalTrigger
@@ -108,7 +114,7 @@ class BetaResponseFallbackBlock(BaseModel):
 class BetaResponseMCPToolResultBlock(BaseModel):
     """Typed representation of the `BetaResponseMCPToolResultBlock` API schema."""
 
-    content: str | list[BetaResponseTextBlock]
+    content: str | Annotated[list[BetaResponseTextBlock], WrapValidator(validate_union_candidate)]
     """Required API value serialized in the `content` wire field."""
     is_error: bool
     """Required `boolean` value serialized in the `is_error` wire field."""

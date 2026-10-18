@@ -187,7 +187,12 @@ class BetaCreateMessageParams(BaseModel):
     When the appended-assistant form is used on a model that otherwise disallows
     assistant-turn prefill, this token also authorizes that one prefill.
     """
-    fallbacks: list[BetaFallbackConfigV2] | Literal["default"] | None | NotGiven = NOT_GIVEN
+    fallbacks: (
+        Annotated[list[BetaFallbackConfigV2], WrapValidator(validate_union_candidate)]
+        | Literal["default"]
+        | None
+        | NotGiven
+    ) = NOT_GIVEN
     """Opt-in server-side retry on one or more substitute models when the requested model declines for policy reasons. Tried in order: if the first entry also declines, the second is tried, and so on. The string "default" requests the requested model's server-defined default fallback configuration."""
     inference_geo: str | None | NotGiven = NOT_GIVEN
     """Specifies the geographic region for inference processing. If not specified, the workspace's `default_inference_geo` is used."""
@@ -227,7 +232,11 @@ class BetaCreateMessageParams(BaseModel):
 
     @example false
     """
-    system: str | list[BetaRequestTextBlock] | NotGiven = NOT_GIVEN
+    system: (
+        str
+        | Annotated[list[BetaRequestTextBlock], WrapValidator(validate_union_candidate)]
+        | NotGiven
+    ) = NOT_GIVEN
     """
     System prompt.
 

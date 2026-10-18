@@ -3421,7 +3421,7 @@ _SCHEMAS: dict[str, Any] = {
             "type": {"python": "type", "type": "string", "enum": ["agent.custom_tool_use"]},
             "id": {"python": "id", "type": "string"},
             "name": {"python": "name", "type": "string"},
-            "input": {"python": "input", "allOf": [{"ref": "BetaManagedAgentsStruct"}]},
+            "input": {"python": "input", "ref": "BetaManagedAgentsStruct"},
             "processed_at": {"python": "processed_at", "allOf": [{"ref": "BetaTimestamp"}]},
             "session_thread_id": {
                 "python": "session_thread_id",
@@ -3455,7 +3455,7 @@ _SCHEMAS: dict[str, Any] = {
             "id": {"python": "id", "type": "string"},
             "name": {"python": "name", "type": "string"},
             "mcp_server_name": {"python": "mcp_server_name", "type": "string"},
-            "input": {"python": "input", "allOf": [{"ref": "BetaManagedAgentsStruct"}]},
+            "input": {"python": "input", "ref": "BetaManagedAgentsStruct"},
             "processed_at": {"python": "processed_at", "allOf": [{"ref": "BetaTimestamp"}]},
             "evaluated_permission": {
                 "python": "evaluated_permission",
@@ -3635,7 +3635,7 @@ _SCHEMAS: dict[str, Any] = {
             "type": {"python": "type", "type": "string", "enum": ["agent.tool_use"]},
             "id": {"python": "id", "type": "string"},
             "name": {"python": "name", "type": "string"},
-            "input": {"python": "input", "allOf": [{"ref": "BetaManagedAgentsStruct"}]},
+            "input": {"python": "input", "ref": "BetaManagedAgentsStruct"},
             "processed_at": {"python": "processed_at", "allOf": [{"ref": "BetaTimestamp"}]},
             "evaluated_permission": {
                 "python": "evaluated_permission",
@@ -3854,15 +3854,7 @@ _SCHEMAS: dict[str, Any] = {
         "required": ["type", "max_list_cost"],
         "properties": {
             "type": {"python": "type", "type": "string", "enum": ["limit"]},
-            "max_list_cost": {
-                "python": "max_list_cost",
-                "required": ["currency", "amount"],
-                "properties": {
-                    "currency": {"python": "currency", "allOf": [{"ref": "BetaCurrency"}]},
-                    "amount": {"python": "amount", "type": "string"},
-                },
-                "allOf": [{"ref": "BetaMonetaryAmount"}],
-            },
+            "max_list_cost": {"python": "max_list_cost", "ref": "BetaMonetaryAmount"},
         },
     },
     "BetaManagedAgentsCacheCreationUsage": {
@@ -4277,18 +4269,7 @@ _SCHEMAS: dict[str, Any] = {
             "description": {"python": "description", "type": "string", "minLength": 1},
             "input_schema": {
                 "python": "input_schema",
-                "required": ["type"],
-                "properties": {
-                    "properties": {"python": "properties", "type": "object", "nullable": True},
-                    "required": {
-                        "python": "required",
-                        "type": "array",
-                        "nullable": True,
-                        "items": {"type": "string"},
-                    },
-                    "type": {"python": "type", "type": "string"},
-                },
-                "allOf": [{"ref": "BetaManagedAgentsCustomToolInputSchema"}],
+                "ref": "BetaManagedAgentsCustomToolInputSchema",
             },
         },
     },
@@ -4370,16 +4351,7 @@ _SCHEMAS: dict[str, Any] = {
             "id": {"python": "id", "type": "string"},
             "name": {"python": "name", "type": "string"},
             "description": {"python": "description", "type": "string", "nullable": True},
-            "agent": {
-                "python": "agent",
-                "required": ["type", "id", "version"],
-                "properties": {
-                    "type": {"python": "type", "type": "string", "enum": ["agent"]},
-                    "id": {"python": "id", "type": "string"},
-                    "version": {"python": "version", "type": "integer"},
-                },
-                "allOf": [{"ref": "BetaManagedAgentsAgentReference"}],
-            },
+            "agent": {"python": "agent", "ref": "BetaManagedAgentsAgentReference"},
             "environment_id": {"python": "environment_id", "type": "string"},
             "vault_ids": {"python": "vault_ids", "type": "array", "items": {"type": "string"}},
             "initial_events": {
@@ -4495,16 +4467,7 @@ _SCHEMAS: dict[str, Any] = {
             },
             "session_id": {"python": "session_id", "type": "string", "nullable": True},
             "error": {"python": "error", "ref": "BetaManagedAgentsRunError"},
-            "agent": {
-                "python": "agent",
-                "required": ["type", "id", "version"],
-                "properties": {
-                    "type": {"python": "type", "type": "string", "enum": ["agent"]},
-                    "id": {"python": "id", "type": "string"},
-                    "version": {"python": "version", "type": "integer"},
-                },
-                "allOf": [{"ref": "BetaManagedAgentsAgentReference"}],
-            },
+            "agent": {"python": "agent", "ref": "BetaManagedAgentsAgentReference"},
             "created_at": {"python": "created_at", "allOf": [{"ref": "BetaTimestamp"}]},
         },
     },
@@ -4674,12 +4637,7 @@ _SCHEMAS: dict[str, Any] = {
             },
             "injection_location": {
                 "python": "injection_location",
-                "required": ["header", "body"],
-                "properties": {
-                    "header": {"python": "header", "type": "boolean"},
-                    "body": {"python": "body", "type": "boolean"},
-                },
-                "allOf": [{"ref": "BetaManagedAgentsInjectionLocationResponse"}],
+                "ref": "BetaManagedAgentsInjectionLocationResponse",
             },
         },
     },
@@ -4706,11 +4664,7 @@ _SCHEMAS: dict[str, Any] = {
             },
             "injection_location": {
                 "python": "injection_location",
-                "properties": {
-                    "header": {"python": "header", "type": "boolean"},
-                    "body": {"python": "body", "type": "boolean"},
-                },
-                "allOf": [{"ref": "BetaManagedAgentsInjectionLocationParams"}],
+                "ref": "BetaManagedAgentsInjectionLocationParams",
             },
         },
     },
@@ -4729,11 +4683,7 @@ _SCHEMAS: dict[str, Any] = {
             },
             "injection_location": {
                 "python": "injection_location",
-                "properties": {
-                    "header": {"python": "header", "type": "boolean"},
-                    "body": {"python": "body", "type": "boolean"},
-                },
-                "allOf": [{"ref": "BetaManagedAgentsInjectionLocationUpdateParams"}],
+                "ref": "BetaManagedAgentsInjectionLocationUpdateParams",
             },
         },
     },
@@ -4774,15 +4724,7 @@ _SCHEMAS: dict[str, Any] = {
         "properties": {
             "type": {"python": "type", "type": "string", "enum": ["content_delta"]},
             "index": {"python": "index", "type": "integer"},
-            "content": {
-                "python": "content",
-                "required": ["type", "text"],
-                "properties": {
-                    "type": {"python": "type", "type": "string", "enum": ["text"]},
-                    "text": {"python": "text", "type": "string", "minLength": 1},
-                },
-                "allOf": [{"ref": "BetaManagedAgentsTextBlock"}],
-            },
+            "content": {"python": "content", "ref": "BetaManagedAgentsTextBlock"},
         },
     },
     "BetaManagedAgentsEventDeltaEvent_Delta": {
@@ -6059,12 +6001,7 @@ _SCHEMAS: dict[str, Any] = {
                 "type": "array",
                 "items": {"ref": "BetaManagedAgentsSearchResultContent"},
             },
-            "citations": {
-                "python": "citations",
-                "required": ["enabled"],
-                "properties": {"enabled": {"python": "enabled", "type": "boolean"}},
-                "allOf": [{"ref": "BetaManagedAgentsSearchResultCitations"}],
-            },
+            "citations": {"python": "citations", "ref": "BetaManagedAgentsSearchResultCitations"},
         },
     },
     "BetaManagedAgentsSearchResultCitations": {
@@ -6188,46 +6125,8 @@ _SCHEMAS: dict[str, Any] = {
                 "type": "array",
                 "items": {"ref": "BetaManagedAgentsOutcomeEvaluationResource"},
             },
-            "usage": {
-                "python": "usage",
-                "properties": {
-                    "input_tokens": {"python": "input_tokens", "type": "integer"},
-                    "output_tokens": {"python": "output_tokens", "type": "integer"},
-                    "cache_read_input_tokens": {
-                        "python": "cache_read_input_tokens",
-                        "type": "integer",
-                    },
-                    "cache_creation": {
-                        "python": "cache_creation",
-                        "properties": {
-                            "ephemeral_1h_input_tokens": {
-                                "python": "ephemeral_1h_input_tokens",
-                                "type": "integer",
-                            },
-                            "ephemeral_5m_input_tokens": {
-                                "python": "ephemeral_5m_input_tokens",
-                                "type": "integer",
-                            },
-                        },
-                        "allOf": [{"ref": "BetaManagedAgentsCacheCreationUsage"}],
-                    },
-                    "list_cost": {"python": "list_cost", "ref": "BetaMonetaryAmount"},
-                    "server_tool_use": {
-                        "python": "server_tool_use",
-                        "ref": "BetaManagedAgentsServerToolUsage",
-                    },
-                    "active_seconds": {"python": "active_seconds", "type": "number"},
-                },
-                "allOf": [{"ref": "BetaManagedAgentsSessionUsage"}],
-            },
-            "stats": {
-                "python": "stats",
-                "properties": {
-                    "duration_seconds": {"python": "duration_seconds", "type": "number"},
-                    "active_seconds": {"python": "active_seconds", "type": "number"},
-                },
-                "allOf": [{"ref": "BetaManagedAgentsSessionStats"}],
-            },
+            "usage": {"python": "usage", "ref": "BetaManagedAgentsSessionUsage"},
+            "stats": {"python": "stats", "ref": "BetaManagedAgentsSessionStats"},
             "archived_at": {"python": "archived_at", "ref": "BetaTimestamp"},
             "deployment_id": {"python": "deployment_id", "type": "string", "nullable": True},
             "budget": {"python": "budget", "ref": "BetaManagedAgentsBudget"},
@@ -6740,17 +6639,7 @@ _SCHEMAS: dict[str, Any] = {
             "cache_read_input_tokens": {"python": "cache_read_input_tokens", "type": "integer"},
             "cache_creation": {
                 "python": "cache_creation",
-                "properties": {
-                    "ephemeral_1h_input_tokens": {
-                        "python": "ephemeral_1h_input_tokens",
-                        "type": "integer",
-                    },
-                    "ephemeral_5m_input_tokens": {
-                        "python": "ephemeral_5m_input_tokens",
-                        "type": "integer",
-                    },
-                },
-                "allOf": [{"ref": "BetaManagedAgentsCacheCreationUsage"}],
+                "ref": "BetaManagedAgentsCacheCreationUsage",
             },
             "list_cost": {"python": "list_cost", "ref": "BetaMonetaryAmount"},
             "active_seconds": {"python": "active_seconds", "type": "number"},
@@ -6785,17 +6674,7 @@ _SCHEMAS: dict[str, Any] = {
             "cache_read_input_tokens": {"python": "cache_read_input_tokens", "type": "integer"},
             "cache_creation": {
                 "python": "cache_creation",
-                "properties": {
-                    "ephemeral_1h_input_tokens": {
-                        "python": "ephemeral_1h_input_tokens",
-                        "type": "integer",
-                    },
-                    "ephemeral_5m_input_tokens": {
-                        "python": "ephemeral_5m_input_tokens",
-                        "type": "integer",
-                    },
-                },
-                "allOf": [{"ref": "BetaManagedAgentsCacheCreationUsage"}],
+                "ref": "BetaManagedAgentsCacheCreationUsage",
             },
             "list_cost": {"python": "list_cost", "ref": "BetaMonetaryAmount"},
             "server_tool_use": {
@@ -6812,56 +6691,7 @@ _SCHEMAS: dict[str, Any] = {
             "type": {"python": "type", "type": "string", "enum": ["session.usage"]},
             "id": {"python": "id", "type": "string"},
             "processed_at": {"python": "processed_at", "allOf": [{"ref": "BetaTimestamp"}]},
-            "usage": {
-                "python": "usage",
-                "properties": {
-                    "input_tokens": {"python": "input_tokens", "type": "integer"},
-                    "output_tokens": {"python": "output_tokens", "type": "integer"},
-                    "cache_read_input_tokens": {
-                        "python": "cache_read_input_tokens",
-                        "type": "integer",
-                    },
-                    "cache_creation": {
-                        "python": "cache_creation",
-                        "properties": {
-                            "ephemeral_1h_input_tokens": {
-                                "python": "ephemeral_1h_input_tokens",
-                                "type": "integer",
-                            },
-                            "ephemeral_5m_input_tokens": {
-                                "python": "ephemeral_5m_input_tokens",
-                                "type": "integer",
-                            },
-                        },
-                        "allOf": [{"ref": "BetaManagedAgentsCacheCreationUsage"}],
-                    },
-                    "list_cost": {
-                        "python": "list_cost",
-                        "required": ["currency", "amount"],
-                        "properties": {
-                            "currency": {"python": "currency", "allOf": [{"ref": "BetaCurrency"}]},
-                            "amount": {"python": "amount", "type": "string"},
-                        },
-                        "allOf": [{"ref": "BetaMonetaryAmount"}],
-                    },
-                    "server_tool_use": {
-                        "python": "server_tool_use",
-                        "properties": {
-                            "web_search_requests": {
-                                "python": "web_search_requests",
-                                "type": "integer",
-                            },
-                            "web_fetch_requests": {
-                                "python": "web_fetch_requests",
-                                "type": "integer",
-                            },
-                        },
-                        "allOf": [{"ref": "BetaManagedAgentsServerToolUsage"}],
-                    },
-                    "active_seconds": {"python": "active_seconds", "type": "number"},
-                },
-                "allOf": [{"ref": "BetaManagedAgentsSessionUsageSnapshot"}],
-            },
+            "usage": {"python": "usage", "ref": "BetaManagedAgentsSessionUsageSnapshot"},
             "budget": {"python": "budget", "ref": "BetaManagedAgentsBudget"},
         },
     },
@@ -6873,34 +6703,12 @@ _SCHEMAS: dict[str, Any] = {
             "cache_read_input_tokens": {"python": "cache_read_input_tokens", "type": "integer"},
             "cache_creation": {
                 "python": "cache_creation",
-                "properties": {
-                    "ephemeral_1h_input_tokens": {
-                        "python": "ephemeral_1h_input_tokens",
-                        "type": "integer",
-                    },
-                    "ephemeral_5m_input_tokens": {
-                        "python": "ephemeral_5m_input_tokens",
-                        "type": "integer",
-                    },
-                },
-                "allOf": [{"ref": "BetaManagedAgentsCacheCreationUsage"}],
+                "ref": "BetaManagedAgentsCacheCreationUsage",
             },
-            "list_cost": {
-                "python": "list_cost",
-                "required": ["currency", "amount"],
-                "properties": {
-                    "currency": {"python": "currency", "allOf": [{"ref": "BetaCurrency"}]},
-                    "amount": {"python": "amount", "type": "string"},
-                },
-                "allOf": [{"ref": "BetaMonetaryAmount"}],
-            },
+            "list_cost": {"python": "list_cost", "ref": "BetaMonetaryAmount"},
             "server_tool_use": {
                 "python": "server_tool_use",
-                "properties": {
-                    "web_search_requests": {"python": "web_search_requests", "type": "integer"},
-                    "web_fetch_requests": {"python": "web_fetch_requests", "type": "integer"},
-                },
-                "allOf": [{"ref": "BetaManagedAgentsServerToolUsage"}],
+                "ref": "BetaManagedAgentsServerToolUsage",
             },
             "active_seconds": {"python": "active_seconds", "type": "number"},
         },
@@ -6949,29 +6757,7 @@ _SCHEMAS: dict[str, Any] = {
             "id": {"python": "id", "type": "string"},
             "processed_at": {"python": "processed_at", "allOf": [{"ref": "BetaTimestamp"}]},
             "is_error": {"python": "is_error", "type": "boolean", "nullable": True},
-            "model_usage": {
-                "python": "model_usage",
-                "required": [
-                    "input_tokens",
-                    "output_tokens",
-                    "cache_creation_input_tokens",
-                    "cache_read_input_tokens",
-                ],
-                "properties": {
-                    "input_tokens": {"python": "input_tokens", "type": "integer"},
-                    "output_tokens": {"python": "output_tokens", "type": "integer"},
-                    "cache_creation_input_tokens": {
-                        "python": "cache_creation_input_tokens",
-                        "type": "integer",
-                    },
-                    "cache_read_input_tokens": {
-                        "python": "cache_read_input_tokens",
-                        "type": "integer",
-                    },
-                    "speed": {"python": "speed", "ref": "BetaManagedAgentsSpeed"},
-                },
-                "allOf": [{"ref": "BetaManagedAgentsSpanModelUsage"}],
-            },
+            "model_usage": {"python": "model_usage", "ref": "BetaManagedAgentsSpanModelUsage"},
             "model_request_start_id": {"python": "model_request_start_id", "type": "string"},
         },
     },
@@ -7027,29 +6813,7 @@ _SCHEMAS: dict[str, Any] = {
             "iteration": {"python": "iteration", "type": "integer"},
             "result": {"python": "result", "type": "string"},
             "explanation": {"python": "explanation", "type": "string"},
-            "usage": {
-                "python": "usage",
-                "required": [
-                    "input_tokens",
-                    "output_tokens",
-                    "cache_creation_input_tokens",
-                    "cache_read_input_tokens",
-                ],
-                "properties": {
-                    "input_tokens": {"python": "input_tokens", "type": "integer"},
-                    "output_tokens": {"python": "output_tokens", "type": "integer"},
-                    "cache_creation_input_tokens": {
-                        "python": "cache_creation_input_tokens",
-                        "type": "integer",
-                    },
-                    "cache_read_input_tokens": {
-                        "python": "cache_read_input_tokens",
-                        "type": "integer",
-                    },
-                    "speed": {"python": "speed", "ref": "BetaManagedAgentsSpeed"},
-                },
-                "allOf": [{"ref": "BetaManagedAgentsSpanModelUsage"}],
-            },
+            "usage": {"python": "usage", "ref": "BetaManagedAgentsSpanModelUsage"},
             "outcome_id": {"python": "outcome_id", "type": "string"},
         },
     },
@@ -7634,22 +7398,7 @@ _SCHEMAS: dict[str, Any] = {
                 "additionalProperties": {"type": "string", "nullable": True},
             },
             "vault_ids": {"python": "vault_ids", "type": "array", "items": {"type": "string"}},
-            "agent": {
-                "python": "agent",
-                "properties": {
-                    "tools": {
-                        "python": "tools",
-                        "type": "array",
-                        "items": {"ref": "BetaManagedAgentsAgentToolParams"},
-                    },
-                    "mcp_servers": {
-                        "python": "mcp_servers",
-                        "type": "array",
-                        "items": {"ref": "BetaManagedAgentsMCPServerParams"},
-                    },
-                },
-                "allOf": [{"ref": "BetaManagedAgentsSessionAgentUpdate"}],
-            },
+            "agent": {"python": "agent", "ref": "BetaManagedAgentsSessionAgentUpdate"},
             "budget": {"python": "budget", "ref": "BetaManagedAgentsBudget"},
         },
     },

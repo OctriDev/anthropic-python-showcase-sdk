@@ -142,7 +142,13 @@ class BetaRequestToolResultBlock(BaseModel):
     """Required `string` value serialized in the `type` wire field."""
     cache_control: BetaCacheControlEphemeral | None | NotGiven = NOT_GIVEN
     """Create a cache control breakpoint at this content block."""
-    content: str | list[BetaRequestToolResultBlockContentItem] | NotGiven = NOT_GIVEN
+    content: (
+        str
+        | Annotated[
+            list[BetaRequestToolResultBlockContentItem], WrapValidator(validate_union_candidate)
+        ]
+        | NotGiven
+    ) = NOT_GIVEN
     """Optional API value serialized in the `content` wire field."""
     is_error: bool | NotGiven = NOT_GIVEN
     """Optional `boolean` value serialized in the `is_error` wire field."""
@@ -211,7 +217,7 @@ class BetaRequestWebSearchToolResultBlock(BaseModel):
     model_config = ConfigDict(populate_by_name=False, arbitrary_types_allowed=True)
 
     content: (
-        list[BetaRequestWebSearchResultBlock]
+        Annotated[list[BetaRequestWebSearchResultBlock], WrapValidator(validate_union_candidate)]
         | Annotated[BetaRequestWebSearchToolResultError, WrapValidator(validate_union_candidate)]
     )
     """Required API value serialized in the `content` wire field."""
