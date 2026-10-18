@@ -406,10 +406,7 @@ _RESPONSE_ENUM_SCHEMAS: dict[str, object] = {
     },
     "BetaManagedAgentsDeployment": {
         "properties": {
-            "agent": {
-                "properties": {"type": {"enum": ["agent"]}},
-                "allOf": [{"ref": "BetaManagedAgentsAgentReference"}],
-            },
+            "agent": {"ref": "BetaManagedAgentsAgentReference"},
             "initial_events": {"items": {"ref": "BetaManagedAgentsDeploymentInitialEvent"}},
             "resources": {"items": {"ref": "BetaManagedAgentsSessionResourceConfig"}},
             "schedule": {"ref": "BetaManagedAgentsSchedule"},
@@ -481,10 +478,7 @@ _RESPONSE_ENUM_SCHEMAS: dict[str, object] = {
         "properties": {
             "trigger_context": {"allOf": [{"ref": "BetaManagedAgentsTriggerContext"}]},
             "error": {"ref": "BetaManagedAgentsRunError"},
-            "agent": {
-                "properties": {"type": {"enum": ["agent"]}},
-                "allOf": [{"ref": "BetaManagedAgentsAgentReference"}],
-            },
+            "agent": {"ref": "BetaManagedAgentsAgentReference"},
         }
     },
     "BetaManagedAgentsDeploymentSystemMessageEvent": {
@@ -588,10 +582,7 @@ _RESPONSE_ENUM_SCHEMAS: dict[str, object] = {
     "BetaManagedAgentsEventDeltaEvent_ContentDelta": {
         "properties": {
             "type": {"enum": ["content_delta"]},
-            "content": {
-                "properties": {"type": {"enum": ["text"]}},
-                "allOf": [{"ref": "BetaManagedAgentsTextBlock"}],
-            },
+            "content": {"ref": "BetaManagedAgentsTextBlock"},
         }
     },
     "BetaManagedAgentsEventDeltaEvent_Delta": {
@@ -1639,13 +1630,7 @@ _RESPONSE_ENUM_SCHEMAS: dict[str, object] = {
     },
     "BetaManagedAgentsUpdateSessionParams": {
         "properties": {
-            "agent": {
-                "properties": {
-                    "tools": {"items": {"ref": "BetaManagedAgentsAgentToolParams"}},
-                    "mcp_servers": {"items": {"ref": "BetaManagedAgentsMCPServerParams"}},
-                },
-                "allOf": [{"ref": "BetaManagedAgentsSessionAgentUpdate"}],
-            },
+            "agent": {"ref": "BetaManagedAgentsSessionAgentUpdate"},
             "budget": {"ref": "BetaManagedAgentsBudget"},
         }
     },

@@ -133,7 +133,9 @@ class CountMessageTokensParams(BaseModel):
     """Top-level cache control automatically applies a cache_control marker to the last cacheable block in the request."""
     output_config: OutputConfig | NotGiven = NOT_GIVEN
     """Configuration options for the model's output, such as the output format."""
-    system: str | list[RequestTextBlock] | NotGiven = NOT_GIVEN
+    system: (
+        str | Annotated[list[RequestTextBlock], WrapValidator(validate_union_candidate)] | NotGiven
+    ) = NOT_GIVEN
     """
     System prompt.
 

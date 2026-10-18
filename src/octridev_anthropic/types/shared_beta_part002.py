@@ -224,7 +224,11 @@ class BetaRequestMCPToolResultBlock(BaseModel):
     """Required `string` value serialized in the `type` wire field."""
     cache_control: BetaCacheControlEphemeral | None | NotGiven = NOT_GIVEN
     """Create a cache control breakpoint at this content block."""
-    content: str | list[BetaRequestTextBlock] | NotGiven = NOT_GIVEN
+    content: (
+        str
+        | Annotated[list[BetaRequestTextBlock], WrapValidator(validate_union_candidate)]
+        | NotGiven
+    ) = NOT_GIVEN
     """Optional API value serialized in the `content` wire field."""
     is_error: bool | NotGiven = NOT_GIVEN
     """Optional `boolean` value serialized in the `is_error` wire field."""

@@ -3,15 +3,20 @@
 
 from __future__ import annotations
 
-from typing import Literal
+from typing import Annotated, Literal
 
-from pydantic import BaseModel, ConfigDict, field_validator, model_validator
+from pydantic import BaseModel, ConfigDict, WrapValidator, field_validator, model_validator
 
 from octridev_anthropic.client import NOT_GIVEN, NotGiven
 from octridev_anthropic.types.shared_beta_allowed import BetaAllowedInferenceGeo
 from octridev_anthropic.types.shared_beta_inference import BetaInferenceGeo
 
-from ..validation import validate_length, validate_pattern, validate_required
+from ..validation import (
+    validate_length,
+    validate_pattern,
+    validate_required,
+    validate_union_candidate,
+)
 
 
 class BetaRemoveFederationRuleWorkspaceResponse(BaseModel):
@@ -79,7 +84,10 @@ class BetaDataResidencyUpdateParams(BaseModel):
     model_config = ConfigDict(populate_by_name=False, arbitrary_types_allowed=True)
 
     allowed_inference_geos: (
-        list[BetaAllowedInferenceGeo] | Literal["unrestricted"] | None | NotGiven
+        Annotated[list[BetaAllowedInferenceGeo], WrapValidator(validate_union_candidate)]
+        | Literal["unrestricted"]
+        | None
+        | NotGiven
     ) = NOT_GIVEN
     """Permitted inference geo values. Use 'unrestricted' to allow all geos, or a list of specific geos."""
     default_inference_geo: BetaInferenceGeo | None | NotGiven = NOT_GIVEN

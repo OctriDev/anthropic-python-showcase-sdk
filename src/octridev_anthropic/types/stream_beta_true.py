@@ -59,7 +59,11 @@ class BetaManagedAgentsEventDeltaEvent_ContentDelta(BaseModel):
     type: Literal["content_delta"]
     """Required enumerated value serialized in the `type` wire field."""
     content: BetaManagedAgentsTextBlock
-    """A partial element of the content array at index, typed like the element itself — the same shape the buffered agent.message carries in content."""
+    """
+    A partial element of the content array at index, typed like the element itself — the same shape the buffered agent.message carries in content.
+
+    @example {"type":"text","text":"Where is my order #1234?"}
+    """
     index: int | NotGiven = NOT_GIVEN
     """Which entry in the previewed event's content array this fragment lands in. Insert content as that entry when the index is new; append to the existing entry otherwise."""
 

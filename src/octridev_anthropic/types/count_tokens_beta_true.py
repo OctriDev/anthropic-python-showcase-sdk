@@ -176,7 +176,11 @@ class BetaCountMessageTokensParams(BaseModel):
     """
     speed: BetaSpeed | None | NotGiven = NOT_GIVEN
     """The inference speed mode for this request. `"fast"` enables high output-tokens-per-second inference."""
-    system: str | list[BetaRequestTextBlock] | NotGiven = NOT_GIVEN
+    system: (
+        str
+        | Annotated[list[BetaRequestTextBlock], WrapValidator(validate_union_candidate)]
+        | NotGiven
+    ) = NOT_GIVEN
     """
     System prompt.
 

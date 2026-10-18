@@ -4,9 +4,9 @@
 from __future__ import annotations
 
 import datetime
-from typing import Literal
+from typing import Annotated, Literal
 
-from pydantic import BaseModel, ConfigDict, field_validator, model_validator
+from pydantic import BaseModel, ConfigDict, WrapValidator, field_validator, model_validator
 
 from octridev_anthropic.client import NOT_GIVEN, NotGiven
 from octridev_anthropic.types.shared import Model
@@ -28,7 +28,13 @@ from octridev_anthropic.types.shared_beta_part005 import BetaInputContentBlock
 from octridev_anthropic.types.shared_beta_part006 import BetaSystemMessageOutputConfig
 from octridev_anthropic.types.shared_beta_text import BetaTextEditorCodeExecutionToolResultErrorCode
 
-from ..validation import read_date_time, validate_date_time, validate_range, validate_required
+from ..validation import (
+    read_date_time,
+    validate_date_time,
+    validate_range,
+    validate_required,
+    validate_union_candidate,
+)
 
 
 class BetaRequestTextEditorCodeExecutionToolResultError(BaseModel):
@@ -310,7 +316,7 @@ class BetaInputMessage(BaseModel):
 
     model_config = ConfigDict(populate_by_name=False, arbitrary_types_allowed=True)
 
-    content: str | list[BetaInputContentBlock]
+    content: str | Annotated[list[BetaInputContentBlock], WrapValidator(validate_union_candidate)]
     """Required API value serialized in the `content` wire field."""
     role: Literal["user", "assistant", "system"] | str
     """Required enumerated value serialized in the `role` wire field."""

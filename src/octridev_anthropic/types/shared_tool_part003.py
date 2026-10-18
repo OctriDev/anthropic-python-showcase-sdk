@@ -79,7 +79,13 @@ class RequestToolResultBlock(BaseModel):
     """Required `string` value serialized in the `type` wire field."""
     cache_control: CacheControlEphemeral | None | NotGiven = NOT_GIVEN
     """Create a cache control breakpoint at this content block."""
-    content: str | list[RequestToolResultBlockContentItem] | NotGiven = NOT_GIVEN
+    content: (
+        str
+        | Annotated[
+            list[RequestToolResultBlockContentItem], WrapValidator(validate_union_candidate)
+        ]
+        | NotGiven
+    ) = NOT_GIVEN
     """Optional API value serialized in the `content` wire field."""
     is_error: bool | NotGiven = NOT_GIVEN
     """Optional `boolean` value serialized in the `is_error` wire field."""
@@ -105,7 +111,7 @@ class RequestWebSearchToolResultBlock(BaseModel):
     model_config = ConfigDict(populate_by_name=False, arbitrary_types_allowed=True)
 
     content: (
-        list[RequestWebSearchResultBlock]
+        Annotated[list[RequestWebSearchResultBlock], WrapValidator(validate_union_candidate)]
         | Annotated[RequestWebSearchToolResultError, WrapValidator(validate_union_candidate)]
     )
     """Required API value serialized in the `content` wire field."""

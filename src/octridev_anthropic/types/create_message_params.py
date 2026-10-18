@@ -157,7 +157,9 @@ class CreateMessageParamsWithoutStream(BaseModel):
 
     If you want the model to stop generating when it encounters custom strings of text, you can use the `stop_sequences` parameter. If the model encounters one of the custom sequences, the response `stop_reason` value will be `"stop_sequence"` and the response `stop_sequence` value will contain the matched stop sequence.
     """
-    system: str | list[RequestTextBlock] | NotGiven = NOT_GIVEN
+    system: (
+        str | Annotated[list[RequestTextBlock], WrapValidator(validate_union_candidate)] | NotGiven
+    ) = NOT_GIVEN
     """
     System prompt.
 

@@ -80,9 +80,17 @@ class BetaManagedAgentsSessionUsageSnapshot(BaseModel):
     cache_creation: BetaManagedAgentsCacheCreationUsage | NotGiven = NOT_GIVEN
     """Tokens used to create prompt cache entries, broken down by cache TTL."""
     list_cost: BetaMonetaryAmount | NotGiven = NOT_GIVEN
-    """Cumulative list cost of the session across all turns, priced at public list rates."""
+    """
+    Cumulative list cost of the session across all turns, priced at public list rates.
+
+    @example {"currency":"USD","amount":"2500"}
+    """
     server_tool_use: BetaManagedAgentsServerToolUsage | NotGiven = NOT_GIVEN
-    """Cumulative server-executed tool usage across all turns."""
+    """
+    Cumulative server-executed tool usage across all turns.
+
+    @example {"web_search_requests":3,"web_fetch_requests":0}
+    """
     active_seconds: float | NotGiven = NOT_GIVEN
     """Cumulative time in seconds during which the session had at least one thread in running status. Overlapping activity from concurrent threads is counted once. This is the duration the session's runtime cost is priced on."""
 

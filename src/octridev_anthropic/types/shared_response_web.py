@@ -156,7 +156,7 @@ class ResponseWebSearchToolResultBlock(BaseModel):
     """Required API value serialized in the `caller` wire field."""
     content: (
         Annotated[ResponseWebSearchToolResultError, WrapValidator(validate_union_candidate)]
-        | list[ResponseWebSearchResultBlock]
+        | Annotated[list[ResponseWebSearchResultBlock], WrapValidator(validate_union_candidate)]
     )
     """Required API value serialized in the `content` wire field."""
     tool_use_id: str

@@ -160,7 +160,9 @@ class CreateMessageParams(BaseModel):
 
     @example false
     """
-    system: str | list[RequestTextBlock] | NotGiven = NOT_GIVEN
+    system: (
+        str | Annotated[list[RequestTextBlock], WrapValidator(validate_union_candidate)] | NotGiven
+    ) = NOT_GIVEN
     """
     System prompt.
 
