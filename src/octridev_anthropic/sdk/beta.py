@@ -323,12 +323,12 @@ from ..methods.beta.organizations.analytics.beta_organizations_analytics_cost_re
     retrieve_beta_organizations_analytics_cost_report_sync,
 )
 from ..methods.beta.organizations.analytics.beta_organizations_analytics_plugins import (
-    list_beta_organizations_analytics_plugins,
-    list_beta_organizations_analytics_plugins_pages,
-    list_beta_organizations_analytics_plugins_pages_sync,
-    list_beta_organizations_analytics_plugins_paginated,
-    list_beta_organizations_analytics_plugins_paginated_sync,
-    list_beta_organizations_analytics_plugins_sync,
+    list_beta_organization_analytics_plugins,
+    list_beta_organization_analytics_plugins_pages,
+    list_beta_organization_analytics_plugins_pages_sync,
+    list_beta_organization_analytics_plugins_paginated,
+    list_beta_organization_analytics_plugins_paginated_sync,
+    list_beta_organization_analytics_plugins_sync,
 )
 from ..methods.beta.organizations.analytics.beta_organizations_analytics_skills import (
     list_beta_organizations_analytics_skills,
@@ -2878,26 +2878,26 @@ class _AsyncBetaOrganizationsAnalyticsConnectorsNamespace:
 
 class _BetaOrganizationsAnalyticsPluginsNamespace:
     def __init__(self, config: ClientConfig) -> None:
-        self.list = partial(list_beta_organizations_analytics_plugins_sync, config)
-        self.list.__doc__ = list_beta_organizations_analytics_plugins_sync.__doc__
+        self.list = partial(list_beta_organization_analytics_plugins_sync, config)
+        self.list.__doc__ = list_beta_organization_analytics_plugins_sync.__doc__
         self.list_paginated = partial(
-            list_beta_organizations_analytics_plugins_paginated_sync, config
+            list_beta_organization_analytics_plugins_paginated_sync, config
         )
         self.list_paginated.__doc__ = (
-            list_beta_organizations_analytics_plugins_paginated_sync.__doc__
+            list_beta_organization_analytics_plugins_paginated_sync.__doc__
         )
-        self.list_pages = partial(list_beta_organizations_analytics_plugins_pages_sync, config)
-        self.list_pages.__doc__ = list_beta_organizations_analytics_plugins_pages_sync.__doc__
+        self.list_pages = partial(list_beta_organization_analytics_plugins_pages_sync, config)
+        self.list_pages.__doc__ = list_beta_organization_analytics_plugins_pages_sync.__doc__
 
 
 class _AsyncBetaOrganizationsAnalyticsPluginsNamespace:
     def __init__(self, config: ClientConfig) -> None:
-        self.list = partial(list_beta_organizations_analytics_plugins, config)
-        self.list.__doc__ = list_beta_organizations_analytics_plugins.__doc__
-        self.list_paginated = partial(list_beta_organizations_analytics_plugins_paginated, config)
-        self.list_paginated.__doc__ = list_beta_organizations_analytics_plugins_paginated.__doc__
-        self.list_pages = partial(list_beta_organizations_analytics_plugins_pages, config)
-        self.list_pages.__doc__ = list_beta_organizations_analytics_plugins_pages.__doc__
+        self.list = partial(list_beta_organization_analytics_plugins, config)
+        self.list.__doc__ = list_beta_organization_analytics_plugins.__doc__
+        self.list_paginated = partial(list_beta_organization_analytics_plugins_paginated, config)
+        self.list_paginated.__doc__ = list_beta_organization_analytics_plugins_paginated.__doc__
+        self.list_pages = partial(list_beta_organization_analytics_plugins_pages, config)
+        self.list_pages.__doc__ = list_beta_organization_analytics_plugins_pages.__doc__
 
 
 class _BetaOrganizationsAnalyticsArtifactsNamespace:

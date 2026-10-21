@@ -3,7 +3,7 @@
 
 import importlib
 
-from .shared_beta_managed_agents_part001 import (
+from .shared_beta_managed_agents_shared import (
     BetaManagedAgentsActor,
     BetaManagedAgentsAdvisor,
     BetaManagedAgentsAdvisorParams,
@@ -36,7 +36,75 @@ from .shared_beta_managed_agents_part001 import (
     UnknownBetaManagedAgentsAgentToolConfigUnionParams,
     UnknownBetaManagedAgentsAgentToolParams,
 )
-from .shared_beta_managed_agents_part002 import (
+from .shared_beta_managed_agents_shared10 import (
+    BetaManagedAgentsDeploymentSystemMessageEvent,
+    BetaManagedAgentsDeploymentUserDefineOutcomeEvent,
+    BetaManagedAgentsDeploymentUserMessageEvent,
+    BetaManagedAgentsModelRequestFailedError,
+    BetaManagedAgentsSession,
+    BetaManagedAgentsSessionMultiagentCoordinator,
+    BetaManagedAgentsSpanModelUsage,
+    BetaManagedAgentsSystemMessageEvent,
+    BetaManagedAgentsSystemMessageEventParams,
+    BetaManagedAgentsUnknownError,
+    BetaManagedAgentsUserCustomToolResultEvent,
+    BetaManagedAgentsUserDefineOutcomeEventParams,
+    BetaManagedAgentsUserMessageEvent,
+    BetaManagedAgentsUserMessageEventParams,
+    BetaManagedAgentsUserToolResultEvent,
+)
+from .shared_beta_managed_agents_shared11 import (
+    BetaManagedAgentsAgentCustomToolUseEvent,
+    BetaManagedAgentsAgentMcpToolResultEvent,
+    BetaManagedAgentsAgentMcpToolUseEvent,
+    BetaManagedAgentsAgentMessageEvent,
+    BetaManagedAgentsAgentThinkingEvent,
+    BetaManagedAgentsAgentThreadContextCompactedEvent,
+    BetaManagedAgentsAgentThreadMessageReceivedEvent,
+    BetaManagedAgentsAgentThreadMessageSentEvent,
+    BetaManagedAgentsAgentToolResultEvent,
+    BetaManagedAgentsAgentToolUseEvent,
+    BetaManagedAgentsDeployment,
+    BetaManagedAgentsDeploymentRun,
+    BetaManagedAgentsMemory,
+    BetaManagedAgentsUserToolConfirmationEvent,
+)
+from .shared_beta_managed_agents_shared12 import (
+    BetaManagedAgentsMemoryStore,
+    BetaManagedAgentsMemoryVersion,
+    BetaManagedAgentsScheduleTriggerContext,
+    BetaManagedAgentsSessionDeletedEvent,
+    BetaManagedAgentsSessionStatusRescheduledEvent,
+    BetaManagedAgentsSessionStatusRunningEvent,
+    BetaManagedAgentsSessionStatusTerminatedEvent,
+    BetaManagedAgentsSessionThread,
+    BetaManagedAgentsSessionThreadCreatedEvent,
+    BetaManagedAgentsSessionThreadStatusRescheduledEvent,
+    BetaManagedAgentsSessionThreadStatusRunningEvent,
+    BetaManagedAgentsSessionThreadStatusTerminatedEvent,
+    BetaManagedAgentsSessionUpdatedEvent,
+    BetaManagedAgentsSessionUsageEvent,
+    BetaManagedAgentsSpanModelRequestEndEvent,
+    BetaManagedAgentsSpanModelRequestStartEvent,
+)
+from .shared_beta_managed_agents_shared13 import (
+    BetaManagedAgentsAgent,
+    BetaManagedAgentsErrorResponse,
+    BetaManagedAgentsMcpOauthRefreshResponse,
+    BetaManagedAgentsModelConfig,
+    BetaManagedAgentsModelConfigParams,
+    BetaManagedAgentsModelParams,
+    BetaManagedAgentsSessionAgent,
+    BetaManagedAgentsSessionErrorEvent,
+    BetaManagedAgentsSessionStatusIdleEvent,
+    BetaManagedAgentsSessionThreadAgent,
+    BetaManagedAgentsSessionThreadStatusIdleEvent,
+    BetaManagedAgentsSpanOutcomeEvaluationEndEvent,
+    BetaManagedAgentsSpanOutcomeEvaluationOngoingEvent,
+    BetaManagedAgentsSpanOutcomeEvaluationStartEvent,
+    BetaManagedAgentsUserDefineOutcomeEvent,
+)
+from .shared_beta_managed_agents_shared2 import (
     BetaManagedAgentsCommitCheckout,
     BetaManagedAgentsCredentialAuth,
     BetaManagedAgentsCredentialNetworkingParams,
@@ -72,7 +140,7 @@ from .shared_beta_managed_agents_part002 import (
     UnknownBetaManagedAgentsDocumentSource,
     UnknownBetaManagedAgentsEffort,
 )
-from .shared_beta_managed_agents_part003 import (
+from .shared_beta_managed_agents_shared3 import (
     BetaManagedAgentsEnvironmentArchivedRunError,
     BetaManagedAgentsEnvironmentNotFoundDeploymentPausedReasonError,
     BetaManagedAgentsEnvironmentNotFoundRunError,
@@ -98,7 +166,7 @@ from .shared_beta_managed_agents_part003 import (
     BetaManagedAgentsMCPToolsetParams,
     UnknownBetaManagedAgentsImageSource,
 )
-from .shared_beta_managed_agents_part004 import (
+from .shared_beta_managed_agents_shared4 import (
     BetaManagedAgentsManualTriggerContext,
     BetaManagedAgentsMcpEgressBlockedDeploymentPausedReasonError,
     BetaManagedAgentsMcpEgressBlockedRunError,
@@ -135,7 +203,7 @@ from .shared_beta_managed_agents_part004 import (
     UnknownBetaManagedAgentsRubric,
     UnknownBetaManagedAgentsRubricParams,
 )
-from .shared_beta_managed_agents_part005 import (
+from .shared_beta_managed_agents_shared5 import (
     BetaManagedAgentsRunError,
     BetaManagedAgentsSchedule,
     BetaManagedAgentsScheduleParams,
@@ -173,7 +241,7 @@ from .shared_beta_managed_agents_part005 import (
     UnknownBetaManagedAgentsSessionRosterEntry,
     UnknownBetaManagedAgentsSessionThreadAgentEntry,
 )
-from .shared_beta_managed_agents_part006 import (
+from .shared_beta_managed_agents_shared6 import (
     BetaManagedAgentsSessionUsage,
     BetaManagedAgentsSessionUsageSnapshot,
     BetaManagedAgentsSkill,
@@ -204,7 +272,7 @@ from .shared_beta_managed_agents_part006 import (
     UnknownBetaManagedAgentsToolResultContentBlock,
     UnknownBetaManagedAgentsTriggerContext,
 )
-from .shared_beta_managed_agents_part007 import (
+from .shared_beta_managed_agents_shared7 import (
     BetaManagedAgentsAgentToolset20260401,
     BetaManagedAgentsAgentToolset20260401Params,
     BetaManagedAgentsConflictError,
@@ -235,7 +303,7 @@ from .shared_beta_managed_agents_part007 import (
     UnknownBetaManagedAgentsSessionThreadStatusIdleEventStopReason,
     UnknownBetaManagedAgentsUserContentBlock,
 )
-from .shared_beta_managed_agents_part008 import (
+from .shared_beta_managed_agents_shared8 import (
     BetaManagedAgentsAgentToolsetDefaultConfig,
     BetaManagedAgentsAgentToolsetDefaultConfigParams,
     BetaManagedAgentsBashToolConfig,
@@ -260,7 +328,7 @@ from .shared_beta_managed_agents_part008 import (
     BetaManagedAgentsMultiagentCoordinator,
     BetaManagedAgentsMultiagentCoordinatorParams,
 )
-from .shared_beta_managed_agents_part009 import (
+from .shared_beta_managed_agents_shared9 import (
     BetaManagedAgentsBillingError,
     BetaManagedAgentsCredentialHostUnreachableError,
     BetaManagedAgentsGitHubRepositoryResource,
@@ -278,74 +346,6 @@ from .shared_beta_managed_agents_part009 import (
     BetaManagedAgentsWebSearchToolConfigParams,
     BetaManagedAgentsWriteToolConfig,
     BetaManagedAgentsWriteToolConfigParams,
-)
-from .shared_beta_managed_agents_part010 import (
-    BetaManagedAgentsDeploymentSystemMessageEvent,
-    BetaManagedAgentsDeploymentUserDefineOutcomeEvent,
-    BetaManagedAgentsDeploymentUserMessageEvent,
-    BetaManagedAgentsModelRequestFailedError,
-    BetaManagedAgentsSession,
-    BetaManagedAgentsSessionMultiagentCoordinator,
-    BetaManagedAgentsSpanModelUsage,
-    BetaManagedAgentsSystemMessageEvent,
-    BetaManagedAgentsSystemMessageEventParams,
-    BetaManagedAgentsUnknownError,
-    BetaManagedAgentsUserCustomToolResultEvent,
-    BetaManagedAgentsUserDefineOutcomeEventParams,
-    BetaManagedAgentsUserMessageEvent,
-    BetaManagedAgentsUserMessageEventParams,
-    BetaManagedAgentsUserToolResultEvent,
-)
-from .shared_beta_managed_agents_part011 import (
-    BetaManagedAgentsAgentCustomToolUseEvent,
-    BetaManagedAgentsAgentMcpToolResultEvent,
-    BetaManagedAgentsAgentMcpToolUseEvent,
-    BetaManagedAgentsAgentMessageEvent,
-    BetaManagedAgentsAgentThinkingEvent,
-    BetaManagedAgentsAgentThreadContextCompactedEvent,
-    BetaManagedAgentsAgentThreadMessageReceivedEvent,
-    BetaManagedAgentsAgentThreadMessageSentEvent,
-    BetaManagedAgentsAgentToolResultEvent,
-    BetaManagedAgentsAgentToolUseEvent,
-    BetaManagedAgentsDeployment,
-    BetaManagedAgentsDeploymentRun,
-    BetaManagedAgentsMemory,
-    BetaManagedAgentsUserToolConfirmationEvent,
-)
-from .shared_beta_managed_agents_part012 import (
-    BetaManagedAgentsMemoryStore,
-    BetaManagedAgentsMemoryVersion,
-    BetaManagedAgentsScheduleTriggerContext,
-    BetaManagedAgentsSessionDeletedEvent,
-    BetaManagedAgentsSessionStatusRescheduledEvent,
-    BetaManagedAgentsSessionStatusRunningEvent,
-    BetaManagedAgentsSessionStatusTerminatedEvent,
-    BetaManagedAgentsSessionThread,
-    BetaManagedAgentsSessionThreadCreatedEvent,
-    BetaManagedAgentsSessionThreadStatusRescheduledEvent,
-    BetaManagedAgentsSessionThreadStatusRunningEvent,
-    BetaManagedAgentsSessionThreadStatusTerminatedEvent,
-    BetaManagedAgentsSessionUpdatedEvent,
-    BetaManagedAgentsSessionUsageEvent,
-    BetaManagedAgentsSpanModelRequestEndEvent,
-    BetaManagedAgentsSpanModelRequestStartEvent,
-)
-from .shared_beta_managed_agents_part013 import (
-    BetaManagedAgentsAgent,
-    BetaManagedAgentsErrorResponse,
-    BetaManagedAgentsMcpOauthRefreshResponse,
-    BetaManagedAgentsModelConfig,
-    BetaManagedAgentsModelConfigParams,
-    BetaManagedAgentsModelParams,
-    BetaManagedAgentsSessionAgent,
-    BetaManagedAgentsSessionErrorEvent,
-    BetaManagedAgentsSessionStatusIdleEvent,
-    BetaManagedAgentsSessionThreadAgent,
-    BetaManagedAgentsSessionThreadStatusIdleEvent,
-    BetaManagedAgentsSpanOutcomeEvaluationEndEvent,
-    BetaManagedAgentsSpanOutcomeEvaluationOngoingEvent,
-    BetaManagedAgentsSpanOutcomeEvaluationStartEvent,
-    BetaManagedAgentsUserDefineOutcomeEvent,
 )
 
 __all__ = [
@@ -671,11 +671,11 @@ __all__ = [
 
 # Forward references deferred to TYPE_CHECKING in the parts above are
 # resolvable now that every part is loaded.
-_shared_beta_managed_agents_part001 = importlib.import_module(
-    ".shared_beta_managed_agents_part001", __package__
+_shared_beta_managed_agents_shared = importlib.import_module(
+    ".shared_beta_managed_agents_shared", __package__
 )
 
-_deferred_shared_beta_managed_agents_part001: tuple[tuple[str, object], ...] = (
+_deferred_shared_beta_managed_agents_shared: tuple[tuple[str, object], ...] = (
     ("BetaManagedAgentsAgentToolset20260401", BetaManagedAgentsAgentToolset20260401),
     ("BetaManagedAgentsAgentToolset20260401Params", BetaManagedAgentsAgentToolset20260401Params),
     ("BetaManagedAgentsBashToolConfig", BetaManagedAgentsBashToolConfig),
@@ -704,8 +704,8 @@ _deferred_shared_beta_managed_agents_part001: tuple[tuple[str, object], ...] = (
     ("BetaManagedAgentsWriteToolConfig", BetaManagedAgentsWriteToolConfig),
     ("BetaManagedAgentsWriteToolConfigParams", BetaManagedAgentsWriteToolConfigParams),
 )
-for _name, _value in _deferred_shared_beta_managed_agents_part001:
-    setattr(_shared_beta_managed_agents_part001, _name, _value)
+for _name, _value in _deferred_shared_beta_managed_agents_shared:
+    setattr(_shared_beta_managed_agents_shared, _name, _value)
 
 UnknownBetaManagedAgentsActor.model_rebuild()
 BetaManagedAgentsAdvisor.model_rebuild()
@@ -730,11 +730,11 @@ BetaManagedAgentsBranchCheckout.model_rebuild()
 BetaManagedAgentsBudgetLimit.model_rebuild()
 BetaManagedAgentsCacheCreationUsage.model_rebuild()
 
-_shared_beta_managed_agents_part002 = importlib.import_module(
-    ".shared_beta_managed_agents_part002", __package__
+_shared_beta_managed_agents_shared2 = importlib.import_module(
+    ".shared_beta_managed_agents_shared2", __package__
 )
 
-_deferred_shared_beta_managed_agents_part002: tuple[tuple[str, object], ...] = (
+_deferred_shared_beta_managed_agents_shared2: tuple[tuple[str, object], ...] = (
     (
         "BetaManagedAgentsDeploymentSystemMessageEvent",
         BetaManagedAgentsDeploymentSystemMessageEvent,
@@ -829,8 +829,8 @@ _deferred_shared_beta_managed_agents_part002: tuple[tuple[str, object], ...] = (
         BetaManagedAgentsWorkspaceArchivedDeploymentPausedReasonError,
     ),
 )
-for _name, _value in _deferred_shared_beta_managed_agents_part002:
-    setattr(_shared_beta_managed_agents_part002, _name, _value)
+for _name, _value in _deferred_shared_beta_managed_agents_shared2:
+    setattr(_shared_beta_managed_agents_shared2, _name, _value)
 
 BetaManagedAgentsCommitCheckout.model_rebuild()
 UnknownBetaManagedAgentsCredentialAuth.model_rebuild()
@@ -856,11 +856,11 @@ BetaManagedAgentsEffortMedium.model_rebuild()
 BetaManagedAgentsEffortXhigh.model_rebuild()
 BetaManagedAgentsEnvironmentArchivedDeploymentPausedReasonError.model_rebuild()
 
-_shared_beta_managed_agents_part003 = importlib.import_module(
-    ".shared_beta_managed_agents_part003", __package__
+_shared_beta_managed_agents_shared3 = importlib.import_module(
+    ".shared_beta_managed_agents_shared3", __package__
 )
 
-_deferred_shared_beta_managed_agents_part003: tuple[tuple[str, object], ...] = (
+_deferred_shared_beta_managed_agents_shared3: tuple[tuple[str, object], ...] = (
     ("BetaManagedAgentsMCPToolConfig", BetaManagedAgentsMCPToolConfig),
     ("BetaManagedAgentsMCPToolConfigParams", BetaManagedAgentsMCPToolConfigParams),
     ("BetaManagedAgentsMCPToolsetDefaultConfig", BetaManagedAgentsMCPToolsetDefaultConfig),
@@ -871,8 +871,8 @@ _deferred_shared_beta_managed_agents_part003: tuple[tuple[str, object], ...] = (
     ("BetaManagedAgentsURLImageSource", BetaManagedAgentsURLImageSource),
     ("BetaManagedAgentsURLMCPServerParams", BetaManagedAgentsURLMCPServerParams),
 )
-for _name, _value in _deferred_shared_beta_managed_agents_part003:
-    setattr(_shared_beta_managed_agents_part003, _name, _value)
+for _name, _value in _deferred_shared_beta_managed_agents_shared3:
+    setattr(_shared_beta_managed_agents_shared3, _name, _value)
 
 BetaManagedAgentsEnvironmentArchivedRunError.model_rebuild()
 BetaManagedAgentsEnvironmentNotFoundDeploymentPausedReasonError.model_rebuild()
@@ -895,19 +895,19 @@ BetaManagedAgentsMCPToolset.model_rebuild()
 BetaManagedAgentsMCPToolsetParams.model_rebuild()
 BetaManagedAgentsManualDeploymentPausedReason.model_rebuild()
 
-_shared_beta_managed_agents_part004 = importlib.import_module(
-    ".shared_beta_managed_agents_part004", __package__
+_shared_beta_managed_agents_shared4 = importlib.import_module(
+    ".shared_beta_managed_agents_shared4", __package__
 )
 
-_deferred_shared_beta_managed_agents_part004: tuple[tuple[str, object], ...] = (
+_deferred_shared_beta_managed_agents_shared4: tuple[tuple[str, object], ...] = (
     ("BetaManagedAgentsMcpOauthRefreshResponse", BetaManagedAgentsMcpOauthRefreshResponse),
     ("BetaManagedAgentsMultiagentCoordinator", BetaManagedAgentsMultiagentCoordinator),
     ("BetaManagedAgentsMultiagentCoordinatorParams", BetaManagedAgentsMultiagentCoordinatorParams),
     ("BetaManagedAgentsTextRubric", BetaManagedAgentsTextRubric),
     ("BetaManagedAgentsTextRubricParams", BetaManagedAgentsTextRubricParams),
 )
-for _name, _value in _deferred_shared_beta_managed_agents_part004:
-    setattr(_shared_beta_managed_agents_part004, _name, _value)
+for _name, _value in _deferred_shared_beta_managed_agents_shared4:
+    setattr(_shared_beta_managed_agents_shared4, _name, _value)
 
 BetaManagedAgentsManualTriggerContext.model_rebuild()
 BetaManagedAgentsMcpEgressBlockedDeploymentPausedReasonError.model_rebuild()
@@ -933,11 +933,11 @@ BetaManagedAgentsRetryStatusTerminal.model_rebuild()
 UnknownBetaManagedAgentsRubric.model_rebuild()
 UnknownBetaManagedAgentsRubricParams.model_rebuild()
 
-_shared_beta_managed_agents_part005 = importlib.import_module(
-    ".shared_beta_managed_agents_part005", __package__
+_shared_beta_managed_agents_shared5 = importlib.import_module(
+    ".shared_beta_managed_agents_shared5", __package__
 )
 
-_deferred_shared_beta_managed_agents_part005: tuple[tuple[str, object], ...] = (
+_deferred_shared_beta_managed_agents_shared5: tuple[tuple[str, object], ...] = (
     ("BetaManagedAgentsGitHubRepositoryResource", BetaManagedAgentsGitHubRepositoryResource),
     (
         "BetaManagedAgentsGitHubRepositoryResourceConfig",
@@ -961,8 +961,8 @@ _deferred_shared_beta_managed_agents_part005: tuple[tuple[str, object], ...] = (
     ("BetaManagedAgentsVaultNotFoundRunError", BetaManagedAgentsVaultNotFoundRunError),
     ("BetaManagedAgentsWorkspaceArchivedRunError", BetaManagedAgentsWorkspaceArchivedRunError),
 )
-for _name, _value in _deferred_shared_beta_managed_agents_part005:
-    setattr(_shared_beta_managed_agents_part005, _name, _value)
+for _name, _value in _deferred_shared_beta_managed_agents_shared5:
+    setattr(_shared_beta_managed_agents_shared5, _name, _value)
 
 UnknownBetaManagedAgentsRunError.model_rebuild()
 BetaManagedAgentsSearchResultBlock.model_rebuild()
@@ -990,17 +990,17 @@ UnknownBetaManagedAgentsSessionThreadAgentEntry.model_rebuild()
 BetaManagedAgentsSessionThreadStats.model_rebuild()
 BetaManagedAgentsSessionThreadUsage.model_rebuild()
 
-_shared_beta_managed_agents_part006 = importlib.import_module(
-    ".shared_beta_managed_agents_part006", __package__
+_shared_beta_managed_agents_shared6 = importlib.import_module(
+    ".shared_beta_managed_agents_shared6", __package__
 )
 
-_deferred_shared_beta_managed_agents_part006: tuple[tuple[str, object], ...] = (
+_deferred_shared_beta_managed_agents_shared6: tuple[tuple[str, object], ...] = (
     ("BetaManagedAgentsDocumentBlock", BetaManagedAgentsDocumentBlock),
     ("BetaManagedAgentsImageBlock", BetaManagedAgentsImageBlock),
     ("BetaManagedAgentsScheduleTriggerContext", BetaManagedAgentsScheduleTriggerContext),
 )
-for _name, _value in _deferred_shared_beta_managed_agents_part006:
-    setattr(_shared_beta_managed_agents_part006, _name, _value)
+for _name, _value in _deferred_shared_beta_managed_agents_shared6:
+    setattr(_shared_beta_managed_agents_shared6, _name, _value)
 
 BetaManagedAgentsSessionUsage.model_rebuild()
 BetaManagedAgentsSessionUsageSnapshot.model_rebuild()
@@ -1025,11 +1025,11 @@ BetaManagedAgentsUnknownRunError.model_rebuild()
 BetaManagedAgentsUnrestrictedCredentialNetworkingParams.model_rebuild()
 BetaManagedAgentsUnrestrictedCredentialNetworkingResponse.model_rebuild()
 
-_shared_beta_managed_agents_part007 = importlib.import_module(
-    ".shared_beta_managed_agents_part007", __package__
+_shared_beta_managed_agents_shared7 = importlib.import_module(
+    ".shared_beta_managed_agents_shared7", __package__
 )
 
-_deferred_shared_beta_managed_agents_part007: tuple[tuple[str, object], ...] = (
+_deferred_shared_beta_managed_agents_shared7: tuple[tuple[str, object], ...] = (
     ("BetaManagedAgentsAgentToolsetDefaultConfig", BetaManagedAgentsAgentToolsetDefaultConfig),
     (
         "BetaManagedAgentsAgentToolsetDefaultConfigParams",
@@ -1052,8 +1052,8 @@ _deferred_shared_beta_managed_agents_part007: tuple[tuple[str, object], ...] = (
     ("BetaManagedAgentsModelRequestFailedError", BetaManagedAgentsModelRequestFailedError),
     ("BetaManagedAgentsUnknownError", BetaManagedAgentsUnknownError),
 )
-for _name, _value in _deferred_shared_beta_managed_agents_part007:
-    setattr(_shared_beta_managed_agents_part007, _name, _value)
+for _name, _value in _deferred_shared_beta_managed_agents_shared7:
+    setattr(_shared_beta_managed_agents_shared7, _name, _value)
 
 BetaManagedAgentsUserActor.model_rebuild()
 UnknownBetaManagedAgentsUserContentBlock.model_rebuild()
@@ -1077,15 +1077,15 @@ BetaManagedAgentsAgentToolset20260401Params.model_rebuild()
 BetaManagedAgentsCredential.model_rebuild()
 BetaManagedAgentsEnvironmentVariableAuthResponse.model_rebuild()
 
-_shared_beta_managed_agents_part010 = importlib.import_module(
-    ".shared_beta_managed_agents_part010", __package__
+_shared_beta_managed_agents_shared10 = importlib.import_module(
+    ".shared_beta_managed_agents_shared10", __package__
 )
 
-_deferred_shared_beta_managed_agents_part010: tuple[tuple[str, object], ...] = (
+_deferred_shared_beta_managed_agents_shared10: tuple[tuple[str, object], ...] = (
     ("BetaManagedAgentsSessionAgent", BetaManagedAgentsSessionAgent),
 )
-for _name, _value in _deferred_shared_beta_managed_agents_part010:
-    setattr(_shared_beta_managed_agents_part010, _name, _value)
+for _name, _value in _deferred_shared_beta_managed_agents_shared10:
+    setattr(_shared_beta_managed_agents_shared10, _name, _value)
 
 BetaManagedAgentsModelRequestFailedError.model_rebuild()
 BetaManagedAgentsUnknownError.model_rebuild()
@@ -1103,15 +1103,15 @@ BetaManagedAgentsDeploymentUserMessageEvent.model_rebuild()
 BetaManagedAgentsUserMessageEvent.model_rebuild()
 BetaManagedAgentsUserMessageEventParams.model_rebuild()
 
-_shared_beta_managed_agents_part012 = importlib.import_module(
-    ".shared_beta_managed_agents_part012", __package__
+_shared_beta_managed_agents_shared12 = importlib.import_module(
+    ".shared_beta_managed_agents_shared12", __package__
 )
 
-_deferred_shared_beta_managed_agents_part012: tuple[tuple[str, object], ...] = (
+_deferred_shared_beta_managed_agents_shared12: tuple[tuple[str, object], ...] = (
     ("BetaManagedAgentsSessionAgent", BetaManagedAgentsSessionAgent),
 )
-for _name, _value in _deferred_shared_beta_managed_agents_part012:
-    setattr(_shared_beta_managed_agents_part012, _name, _value)
+for _name, _value in _deferred_shared_beta_managed_agents_shared12:
+    setattr(_shared_beta_managed_agents_shared12, _name, _value)
 
 BetaManagedAgentsMemoryStore.model_rebuild()
 BetaManagedAgentsMemoryVersion.model_rebuild()
