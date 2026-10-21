@@ -56,10 +56,10 @@ def _validate_pydantic_response(value: Any, response_type: Any) -> Any:
         ) from error
 
 
-ListBetaOrganizationsAnalyticsPluginsError: TypeAlias = BetaErrorResponse
+ListBetaOrganizationAnalyticsPluginsError: TypeAlias = BetaErrorResponse
 
 
-async def list_beta_organizations_analytics_plugins(
+async def list_beta_organization_analytics_plugins(
     _client_config: ClientConfig,
     date: datetime.date | None | NotGiven = NOT_GIVEN,
     starting_date: datetime.date | None | NotGiven = NOT_GIVEN,
@@ -159,7 +159,7 @@ async def list_beta_organizations_analytics_plugins(
                 ("order", order, "form", True),
             ]
         ),
-        operation_id="list_beta_organizations_analytics_plugins",
+        operation_id="list_beta_organization_analytics_plugins",
         errors={
             "400": BetaErrorResponse,
             "401": BetaErrorResponse,
@@ -191,7 +191,7 @@ async def list_beta_organizations_analytics_plugins(
     )
 
 
-def list_beta_organizations_analytics_plugins_sync(
+def list_beta_organization_analytics_plugins_sync(
     _client_config: ClientConfig,
     date: datetime.date | None | NotGiven = NOT_GIVEN,
     starting_date: datetime.date | None | NotGiven = NOT_GIVEN,
@@ -291,7 +291,7 @@ def list_beta_organizations_analytics_plugins_sync(
                 ("order", order, "form", True),
             ]
         ),
-        operation_id="list_beta_organizations_analytics_plugins",
+        operation_id="list_beta_organization_analytics_plugins",
         errors={
             "400": BetaErrorResponse,
             "401": BetaErrorResponse,
@@ -323,7 +323,7 @@ def list_beta_organizations_analytics_plugins_sync(
     )
 
 
-async def list_beta_organizations_analytics_plugins_paginated(
+async def list_beta_organization_analytics_plugins_paginated(
     _client_config: ClientConfig,
     date: datetime.date | None | NotGiven = NOT_GIVEN,
     starting_date: datetime.date | None | NotGiven = NOT_GIVEN,
@@ -402,7 +402,7 @@ async def list_beta_organizations_analytics_plugins_paginated(
     """
     _cursor = page
     while True:
-        _page = await list_beta_organizations_analytics_plugins(
+        _page = await list_beta_organization_analytics_plugins(
             _client_config,
             date,
             starting_date,
@@ -428,7 +428,7 @@ async def list_beta_organizations_analytics_plugins_paginated(
         _cursor = _next
 
 
-async def list_beta_organizations_analytics_plugins_pages(
+async def list_beta_organization_analytics_plugins_pages(
     _client_config: ClientConfig,
     date: datetime.date | None | NotGiven = NOT_GIVEN,
     starting_date: datetime.date | None | NotGiven = NOT_GIVEN,
@@ -446,7 +446,7 @@ async def list_beta_organizations_analytics_plugins_pages(
 ) -> AsyncIterator[SdkPage[BetaAnalyticsPluginsResponse, BetaAnalyticsPluginActivity]]:
     _cursor = page
     while True:
-        _page = await list_beta_organizations_analytics_plugins(
+        _page = await list_beta_organization_analytics_plugins(
             _client_config,
             date,
             starting_date,
@@ -472,7 +472,7 @@ async def list_beta_organizations_analytics_plugins_pages(
         _cursor = _next
 
 
-def list_beta_organizations_analytics_plugins_paginated_sync(
+def list_beta_organization_analytics_plugins_paginated_sync(
     _client_config: ClientConfig,
     date: datetime.date | None | NotGiven = NOT_GIVEN,
     starting_date: datetime.date | None | NotGiven = NOT_GIVEN,
@@ -551,7 +551,7 @@ def list_beta_organizations_analytics_plugins_paginated_sync(
     """
     _cursor = page
     while True:
-        _page = list_beta_organizations_analytics_plugins_sync(
+        _page = list_beta_organization_analytics_plugins_sync(
             _client_config,
             date,
             starting_date,
@@ -576,7 +576,7 @@ def list_beta_organizations_analytics_plugins_paginated_sync(
         _cursor = _next
 
 
-def list_beta_organizations_analytics_plugins_pages_sync(
+def list_beta_organization_analytics_plugins_pages_sync(
     _client_config: ClientConfig,
     date: datetime.date | None | NotGiven = NOT_GIVEN,
     starting_date: datetime.date | None | NotGiven = NOT_GIVEN,
@@ -594,7 +594,7 @@ def list_beta_organizations_analytics_plugins_pages_sync(
 ) -> Iterator[SdkPage[BetaAnalyticsPluginsResponse, BetaAnalyticsPluginActivity]]:
     _cursor = page
     while True:
-        _page = list_beta_organizations_analytics_plugins_sync(
+        _page = list_beta_organization_analytics_plugins_sync(
             _client_config,
             date,
             starting_date,
@@ -621,11 +621,11 @@ def list_beta_organizations_analytics_plugins_pages_sync(
 
 
 __all__ = [
-    "ListBetaOrganizationsAnalyticsPluginsError",
-    "list_beta_organizations_analytics_plugins",
-    "list_beta_organizations_analytics_plugins_pages",
-    "list_beta_organizations_analytics_plugins_pages_sync",
-    "list_beta_organizations_analytics_plugins_paginated",
-    "list_beta_organizations_analytics_plugins_paginated_sync",
-    "list_beta_organizations_analytics_plugins_sync",
+    "ListBetaOrganizationAnalyticsPluginsError",
+    "list_beta_organization_analytics_plugins",
+    "list_beta_organization_analytics_plugins_pages",
+    "list_beta_organization_analytics_plugins_pages_sync",
+    "list_beta_organization_analytics_plugins_paginated",
+    "list_beta_organization_analytics_plugins_paginated_sync",
+    "list_beta_organization_analytics_plugins_sync",
 ]

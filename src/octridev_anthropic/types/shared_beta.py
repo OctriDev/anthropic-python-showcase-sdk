@@ -3,7 +3,7 @@
 
 import importlib
 
-from .shared_beta_part001 import (
+from .shared_beta_shared import (
     BetaAllThinkingTurns,
     BetaAPIError,
     BetaAuthenticationError,
@@ -26,7 +26,7 @@ from .shared_beta_part001 import (
     BetaMCPToolset,
     BetaMessageBatch,
 )
-from .shared_beta_part002 import (
+from .shared_beta_shared2 import (
     BetaMetadata,
     BetaNotFoundError,
     BetaOutputBehavior,
@@ -50,7 +50,7 @@ from .shared_beta_part002 import (
     BetaRequestWebFetchResultBlock,
     UnknownBetaOutputBehavior,
 )
-from .shared_beta_part003 import (
+from .shared_beta_shared3 import (
     BetaRequestWebSearchResultBlock,
     BetaRequestWebSearchResultLocationCitation,
     BetaResponseFallbackBlock,
@@ -76,7 +76,7 @@ from .shared_beta_part003 import (
     BetaThinkingTypes,
     BetaTimestamp,
 )
-from .shared_beta_part004 import (
+from .shared_beta_shared4 import (
     BetaAttachedAttachment,
     BetaAwsExternalKeyConfig,
     BetaCostReportTokenType,
@@ -107,7 +107,7 @@ from .shared_beta_part004 import (
     BetaWebFetchToolResultErrorCode,
     BetaWebSearchToolResultErrorCode,
 )
-from .shared_beta_part005 import (
+from .shared_beta_shared5 import (
     BetaContentBlock,
     BetaContentBlockSourceContentItem,
     BetaFallbackConfigV2Thinking,
@@ -177,7 +177,7 @@ from .shared_beta_part005 import (
     UnknownBetaToolChoice,
     UnknownBetaUsageIterationsItem,
 )
-from .shared_beta_part006 import (
+from .shared_beta_shared6 import (
     BetaFallbackRefusalTrigger,
     BetaMonetaryAmount,
     BetaOutputConfig,
@@ -193,7 +193,7 @@ from .shared_beta_part006 import (
     BetaWebSearchTool_20260209,
     BetaWebSearchTool_20260318,
 )
-from .shared_beta_part007 import (
+from .shared_beta_shared7 import (
     BetaFallbackMessageIterationUsage,
     BetaInputMessage,
     BetaRequestTextEditorCodeExecutionToolResultError,
@@ -210,7 +210,7 @@ from .shared_beta_part007 import (
     BetaUser,
     BetaUserProfile,
 )
-from .shared_beta_part008 import (
+from .shared_beta_shared8 import (
     BetaContentBlockSource,
     BetaMessage,
     BetaMessageIterationUsage,
@@ -225,7 +225,7 @@ from .shared_beta_part008 import (
     BetaResponseWebFetchToolResultBlock,
     BetaResponseWebSearchToolResultBlock,
 )
-from .shared_beta_part009 import (
+from .shared_beta_shared9 import (
     BetaFallbackConfigV2,
     BetaFallbackCreditUsage,
     BetaIterationsUsage,
@@ -469,14 +469,14 @@ __all__ = [
 
 # Forward references deferred to TYPE_CHECKING in the parts above are
 # resolvable now that every part is loaded.
-_shared_beta_part002 = importlib.import_module(".shared_beta_part002", __package__)
+_shared_beta_shared2 = importlib.import_module(".shared_beta_shared2", __package__)
 
-_deferred_shared_beta_part002: tuple[tuple[str, object], ...] = (
+_deferred_shared_beta_shared2: tuple[tuple[str, object], ...] = (
     ("BetaRequestDocumentBlock", BetaRequestDocumentBlock),
     ("BetaRequestTextBlock", BetaRequestTextBlock),
 )
-for _name, _value in _deferred_shared_beta_part002:
-    setattr(_shared_beta_part002, _name, _value)
+for _name, _value in _deferred_shared_beta_shared2:
+    setattr(_shared_beta_shared2, _name, _value)
 
 BetaMetadata.model_rebuild()
 BetaNotFoundError.model_rebuild()
@@ -500,16 +500,16 @@ BetaRequestToolReferenceBlock.model_rebuild()
 BetaRequestToolSearchToolSearchResultBlock.model_rebuild()
 BetaRequestWebFetchResultBlock.model_rebuild()
 
-_shared_beta_part003 = importlib.import_module(".shared_beta_part003", __package__)
+_shared_beta_shared3 = importlib.import_module(".shared_beta_shared3", __package__)
 
-_deferred_shared_beta_part003: tuple[tuple[str, object], ...] = (
+_deferred_shared_beta_shared3: tuple[tuple[str, object], ...] = (
     ("BetaFallbackRefusalTrigger", BetaFallbackRefusalTrigger),
     ("BetaResponseDocumentBlock", BetaResponseDocumentBlock),
     ("BetaResponseFallbackHopInfo", BetaResponseFallbackHopInfo),
     ("BetaResponseTextBlock", BetaResponseTextBlock),
 )
-for _name, _value in _deferred_shared_beta_part003:
-    setattr(_shared_beta_part003, _name, _value)
+for _name, _value in _deferred_shared_beta_shared3:
+    setattr(_shared_beta_shared3, _name, _value)
 
 BetaRequestWebSearchResultBlock.model_rebuild()
 BetaRequestWebSearchResultLocationCitation.model_rebuild()
@@ -532,9 +532,9 @@ BetaThinkingDroppedInputTransformation.model_rebuild()
 BetaThinkingTurns.model_rebuild()
 BetaThinkingTypes.model_rebuild()
 
-_shared_beta_part005 = importlib.import_module(".shared_beta_part005", __package__)
+_shared_beta_shared5 = importlib.import_module(".shared_beta_shared5", __package__)
 
-_deferred_shared_beta_part005: tuple[tuple[str, object], ...] = (
+_deferred_shared_beta_shared5: tuple[tuple[str, object], ...] = (
     ("BetaContentBlockSource", BetaContentBlockSource),
     ("BetaFallbackMessageIterationUsage", BetaFallbackMessageIterationUsage),
     ("BetaMessageIterationUsage", BetaMessageIterationUsage),
@@ -578,8 +578,8 @@ _deferred_shared_beta_part005: tuple[tuple[str, object], ...] = (
     ("BetaThinkingConfigAdaptive", BetaThinkingConfigAdaptive),
     ("BetaThinkingConfigEnabled", BetaThinkingConfigEnabled),
 )
-for _name, _value in _deferred_shared_beta_part005:
-    setattr(_shared_beta_part005, _name, _value)
+for _name, _value in _deferred_shared_beta_shared5:
+    setattr(_shared_beta_shared5, _name, _value)
 
 BetaRuleMatch.model_rebuild()
 BetaScopedApiKeyActorSchema.model_rebuild()
@@ -619,11 +619,11 @@ UnknownBetaFallbackCreditUsageStatus.model_rebuild()
 UnknownBetaUsageIterationsItem.model_rebuild()
 BetaMemoryTool_20250818.model_rebuild()
 
-_shared_beta_part008 = importlib.import_module(".shared_beta_part008", __package__)
+_shared_beta_shared8 = importlib.import_module(".shared_beta_shared8", __package__)
 
-_deferred_shared_beta_part008: tuple[tuple[str, object], ...] = (("BetaUsage", BetaUsage),)
-for _name, _value in _deferred_shared_beta_part008:
-    setattr(_shared_beta_part008, _name, _value)
+_deferred_shared_beta_shared8: tuple[tuple[str, object], ...] = (("BetaUsage", BetaUsage),)
+for _name, _value in _deferred_shared_beta_shared8:
+    setattr(_shared_beta_shared8, _name, _value)
 
 BetaMessage.model_rebuild()
 BetaMessageIterationUsage.model_rebuild()

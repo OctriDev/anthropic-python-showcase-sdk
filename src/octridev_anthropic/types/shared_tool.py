@@ -3,7 +3,7 @@
 
 import importlib
 
-from .shared_tool_part001 import (
+from .shared_tool_shared import (
     ContentBlock,
     ContentBlockSourceContentItem,
     InputContentBlock,
@@ -35,7 +35,7 @@ from .shared_tool_part001 import (
     UnknownResponseToolUseBlockCaller,
     UnknownToolChoice,
 )
-from .shared_tool_part002 import (
+from .shared_tool_shared2 import (
     ContentBlockSource,
     InputMessage,
     RequestDocumentBlock,
@@ -69,7 +69,7 @@ from .shared_tool_part002 import (
     UnknownRequestWebSearchToolResultBlockCaller,
     UnknownResponseToolSearchToolResultBlockContent,
 )
-from .shared_tool_part003 import (
+from .shared_tool_shared3 import (
     RequestTextEditorCodeExecutionToolResultBlock,
     RequestToolResultBlock,
     RequestToolSearchToolResultBlock,
@@ -151,9 +151,9 @@ __all__ = [
 
 # Forward references deferred to TYPE_CHECKING in the parts above are
 # resolvable now that every part is loaded.
-_shared_tool_part001 = importlib.import_module(".shared_tool_part001", __package__)
+_shared_tool_shared = importlib.import_module(".shared_tool_shared", __package__)
 
-_deferred_shared_tool_part001: tuple[tuple[str, object], ...] = (
+_deferred_shared_tool_shared: tuple[tuple[str, object], ...] = (
     ("RequestDocumentBlock", RequestDocumentBlock),
     ("RequestTextBlock", RequestTextBlock),
     (
@@ -168,8 +168,8 @@ _deferred_shared_tool_part001: tuple[tuple[str, object], ...] = (
     ("ResponseToolSearchToolResultBlock", ResponseToolSearchToolResultBlock),
     ("ResponseToolUseBlock", ResponseToolUseBlock),
 )
-for _name, _value in _deferred_shared_tool_part001:
-    setattr(_shared_tool_part001, _name, _value)
+for _name, _value in _deferred_shared_tool_shared:
+    setattr(_shared_tool_shared, _name, _value)
 
 InputSchema.model_rebuild()
 RequestSearchResultBlock.model_rebuild()
